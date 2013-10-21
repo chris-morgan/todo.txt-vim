@@ -1,0 +1,69 @@
+*todo.txt*	For Vim version 7.3 or newer	Last change: 2013 January 26
+
+
+		Todo.txt Vim plugin by Chris Morgan ~
+
+CONTENTS					*todotxt-contents*
+
+1. Introduction and Feature Summary		|todotxt-introduction|
+2. Syntax highlighting				|todotxt-commands|
+3. Mappings					|todotxt-mappings|
+4. Folding					|todotxt-folding|
+5. License					|todotxt-license|
+
+=============================================================================
+
+INTRODUCTION					*todotxt*
+						*todotxt-introduction*
+
+This plugin adds support for todo.txt files, including syntax highlighting, a
+little folding and some useful mappings for working quickly with them.
+
+SYNTAX HIGHLIGHTING				*ft-todotxt-syntax*
+
+By default, the whole lines of entries with priority levels A, B and C are
+specially highlighted. Lines of any other priority are not highlighted, but
+only the priority marker at the start of the line.
+
+Note that the line as a whole is highlighted separately from the marker.
+Depending on how you want to highlight things, this may either make your
+desired highlighting possible, or it may make it mildly painful to work with.
+
+If you want to apply something to many or all letters, iterating over the
+letters with a |:for| loop and using |:exec| can reduce the required code from
+around 26 lines: >
+	hi link todoPriorityA Something
+	hi link todoPriorityB Something
+	hi link todoPriorityC Something
+	" ... twenty lines omitted ...
+	hi link todoPriorityX Something
+	hi link todoPriorityY Something
+	hi link todoPriorityZ Something
+to just these three lines: >
+	for letter in split("ABCDEFGHIJKLMNOPQRSTUVWXYZ", '\zs')
+		exec "hi link todoPriority" . letter . " Something"
+	endfor
+However, you probably will not even need that. By default, the {todoPriority*}
+highlighting groups are linked to {todoPriority}, and {todoPriority*Line}
+(apart from A, B and C, by default) to {todoPriorityLine}.
+
+If you want to avoid the special highlighting of A, B and C priority lines,
+there is a variable which you can set: >
+	let g:todo_priority_abc_special = 0
+Then A, B and C priority lines will also be linked to {todoPriorityLine}
+
+MAPPINGS					*todotxt-mappings*
+
+TODO(Chris): document this.
+
+FOLDING						*todotxt-folding*
+
+|Folding| is supported, hiding completed tasks.
+
+=============================================================================
+
+LICENSE							*todotxt-license*
+
+todotxt is licensed under the same terms as Vim. See |license|.
+
+ vim:tw=78:ts=8:ft=help:norl:

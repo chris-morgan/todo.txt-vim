@@ -1,5 +1,5 @@
 " File:        todo.txt.vim
-" Description: Todo.txt filetype detection
+" Description: Todo.txt filetype plugin
 " Author:      Leandro Freitas <freitass@gmail.com>
 " Licence:     Vim licence
 " Website:     http://github.com/freitass/todo.txt.vim
@@ -56,16 +56,16 @@ function! TodoFoldLevel(lnum)
     " function we will return 1 for the completed tasks (they will be at the
     " first folding level) while for the other lines 0 will be returned,
     " indicating that they do not fold.
-    return match(getline(a:lnum),'^[xX]\s.\+$') + 1
+    return match(getline(a:lnum), '^x\s') + 1
 endfunction
 
 " TodoFoldText() {{{2
 function! TodoFoldText()
-    " The text displayed at the fold is formatted as '+- N Completed tasks'
+    " The text displayed at the fold is formatted as '+- N completed tasks'
     " where N is the number of lines folded.
     return '+' . v:folddashes . ' '
                 \ . (v:foldend - v:foldstart + 1)
-                \ . ' Completed tasks '
+                \ . ' completed tasks '
 endfunction
 
 " Restore context {{{1

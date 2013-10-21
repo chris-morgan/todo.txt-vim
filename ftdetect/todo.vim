@@ -1,9 +1,9 @@
-" File:        todo.txt.vim
-" Description: Todo.txt filetype detection
-" Author:      Leandro Freitas <freitass@gmail.com>
+" Description: todo.txt filetype detection
+" Author:      Chris Morgan <me@chrismorgan.info>
 " Licence:     Vim licence
-" Website:     http://github.com/freitass/todo.txt.vim
-" Version:     0.1
+" Website:     http://github.com/chris-morgan/todo.txt-vim
+" Version:     1
 
-autocmd BufNewFile,BufRead [Tt]odo.txt set filetype=todo
-
+autocmd BufNewFile,BufRead todo.txt set filetype=todo
+autocmd BufNewFile,BufRead Todo.txt set filetype=todo
+autocmd BufNewFile,BufRead TODO.txt set filetype=todo
