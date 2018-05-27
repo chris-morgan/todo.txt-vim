@@ -46,49 +46,34 @@ hi def link todoKVPairValue String
 hi def link todoDoneLine		Comment
 hi def link todoDone			Comment
 
-let g:todo_cterm_256_priorities = 1
-if exists("g:todo_cterm_256_priorities") && g:todo_cterm_256_priorities != 0 && exists("&t_Co") && &t_Co == 256
-	hi def todoPriorityALine ctermfg=196
-	hi def todoPriorityBLine ctermfg=202
-	hi def todoPriorityCLine ctermfg=208
-	hi def todoPriorityDLine ctermfg=214
-	hi def todoPriorityELine ctermfg=220
-	hi def todoPriorityFLine ctermfg=190
-	hi def todoPriorityGLine ctermfg=154
-	hi def todoPriorityHLine ctermfg=118
-	hi def todoPriorityILine ctermfg=82
-	hi def todoPriorityJLine ctermfg=46
-	hi def todoPriorityKLine ctermfg=46
-	hi def todoPriorityLLine ctermfg=47
-	hi def todoPriorityMLine ctermfg=48
-	hi def todoPriorityNLine ctermfg=49
-	hi def todoPriorityOLine ctermfg=50
-	hi def todoPriorityPLine ctermfg=51
-	hi def todoPriorityQLine ctermfg=45
-	hi def todoPriorityRLine ctermfg=39
-	hi def todoPrioritySLine ctermfg=33
-	hi def todoPriorityTLine ctermfg=27
-	hi def todoPriorityULine ctermfg=21
-	hi def todoPriorityVLine ctermfg=57
-	hi def todoPriorityWLine ctermfg=93
-	hi def todoPriorityXLine ctermfg=129
-	hi def todoPriorityYLine ctermfg=165
-	hi def todoPriorityZLine ctermfg=201
-endif
+hi def todoPriorityALine ctermfg=196 guifg=#ff0000
+hi def todoPriorityBLine ctermfg=202 guifg=#ff5f00
+hi def todoPriorityCLine ctermfg=208 guifg=#ff8700
+hi def todoPriorityDLine ctermfg=214 guifg=#ffaf00
+hi def todoPriorityELine ctermfg=220 guifg=#ffd700
+hi def todoPriorityFLine ctermfg=190 guifg=#d7ff00
+hi def todoPriorityGLine ctermfg=154 guifg=#afff00
+hi def todoPriorityHLine ctermfg=118 guifg=#87ff00
+hi def todoPriorityILine ctermfg=82 guifg=#54ff00
+hi def todoPriorityJLine ctermfg=46 guifg=#00ff00
+" Might have made a mistake here in H, I and J? Note that #ffff00 wasn’t used.
+hi def todoPriorityKLine ctermfg=46 guifg=#00ff00
+hi def todoPriorityLLine ctermfg=47 guifg=#00ff5f
+hi def todoPriorityMLine ctermfg=48 guifg=#00ff87
+hi def todoPriorityNLine ctermfg=49 guifg=#00ffaf
+hi def todoPriorityOLine ctermfg=50 guifg=#00ffd7
+hi def todoPriorityPLine ctermfg=51 guifg=#00ffff
+hi def todoPriorityQLine ctermfg=45 guifg=#00d7ff
+hi def todoPriorityRLine ctermfg=39 guifg=#00afff
+hi def todoPrioritySLine ctermfg=33 guifg=#0087ff
+hi def todoPriorityTLine ctermfg=27 guifg=#005fff
+hi def todoPriorityULine ctermfg=21 guifg=#0000ff
+hi def todoPriorityVLine ctermfg=57 guifg=#5f00ff
+hi def todoPriorityWLine ctermfg=93 guifg=#8700ff
+hi def todoPriorityXLine ctermfg=129 guifg=#af00ff
+hi def todoPriorityYLine ctermfg=165 guifg=#d700ff
+hi def todoPriorityZLine ctermfg=201 guifg=#ff00ff
 
-if !exists("g:todo_priority_abc_special") || g:todo_priority_abc_special == 1
-	hi def link todoPriorityALine	Constant
-	hi def link todoPriorityBLine	Statement
-	hi def link todoPriorityCLine	Identifier
-	for letter in split("DEFGHIJKLMNOPQRSTUVWXYZ", '\zs')
-		exec "hi def link todoPriority" . letter . "Line todoPriorityLine"
-	endfor
-else
-	for letter in split("ABCDEFGHIJKLMNOPQRSTUVWXYZ", '\zs')
-		exec "hi def link todoPriority" . letter . "Line todoPriorityLine"
-	endfor
-endif
-hi def link todoPriorityLine	NONE
 for letter in split("ABCDEFGHIJKLMNOPQRSTUVWXYZ", '\zs')
 	exec "hi def link todoPriority" . letter . " todoPriority"
 endfor
